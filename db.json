@@ -1,0 +1,13 @@
+{
+  "stanice": [
+    { "id": 1, "ime": "Inđija" },
+    { "id": 2, "ime": "Beška" },
+    { "id": 3, "ime": "Čortanovci" },
+    { "id": 4, "ime": "Karlovački Vinogradi" },
+    { "id": 5, "ime": "Sremski Karlovci" },
+    { "id": 6, "ime": "Petrovaradin" },
+    { "id": 7, "ime": "Novi Sad" }
+  ],
+  "kategorije": [{}],
+  "vagoni": [{}]
+}
