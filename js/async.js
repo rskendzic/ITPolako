@@ -8,7 +8,7 @@
 const listaStranica = document.getElementById("stanice");
 let stanice = [];
 
-const izlistajStanice = () => {
+const izlistajStanice = stanice => {
   stanice.forEach(stanica => {
     const paragraf = document.createElement("p");
     paragraf.textContent = `${stanica.id}:${stanica.ime}`;
@@ -16,9 +16,19 @@ const izlistajStanice = () => {
   });
 };
 
-fetch("http://localhost:3000/stanice", { method: "GET" })
-  .then(response => response.json())
-  .then(staniceAsync => {
-    stanice = staniceAsync;
-    izlistajStanice();
-  });
+const dobaviStanice = async () => {
+  try {
+    const response = await fetch("http://localhost:3000/stanice", {
+      method: "GET"
+    });
+    if (!response.ok) {
+      throw new Error(`OVO JE NASA GRESKA: ${response.statusText}`);
+    }
+    const stanice = await response.json();
+    izlistajStanice(stanice);
+  } catch (error) {
+    console.error(error.message);
+  }
+};
+
+dobaviStanice();
